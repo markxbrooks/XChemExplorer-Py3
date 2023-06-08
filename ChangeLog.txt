@@ -1,0 +1,470 @@
+v1.9.4 (10/10/2022)
+- catch unusual space group names in PDB CRYST card
+
+v1.9.3 (29/06/2022)
+- added 'module load ccp4/7.1.018' to grade script otherwise the helper script will run with python3
+
+v1.9.2 (28/06/2022)
+- replace obsolete 'source /dls/science/groups/i04-1/software/pandda-update/ccp4/ccp4-7.0/bin/ccp4.setup-sh' with 'module load ccp4/7.1.016' before running pandda.export
+
+
+v1.9.1 (16/06/2022)
+- changed add instances of 'module load ccp4' to 'module load ccp4/7.1.018', except for the pandda2 function
+
+v1.9.0 (22/04/2022)
+- add functionality for running PanDDA2 at Diamond Light Source
+- fixed hyperlink to PanDDA manual
+
+v1.8.2 (20/01/2022)
+- added 'Porphyromonas gingivalis' to NCBI taxonomy id
+- fixed SARS-CoV-2 name in NCBI taxonomy id table
+- bug fix: XChemDeposit - added missing underscore to loop statement in _pdbx_audit_support block
+- XChemDeposit: issue warning and do not add empty xtal string to error list
+- bug fix: XChemDeposit - recognition of staraniso logfile
+
+v1.8.1 (19/01/2022)
+- fix: event map to sf conversion; ignore existing ligand pdb files
+
+v1.8.0 (17/12/2021)
+- added feature for working with cocktails/ combi-soaks: multiple compounds/ smiles separated by semi-colon in db are recognised during restraint generation
+
+v1.7.36 (13/10/2021)
+- bug fix: manual selection of different auto-processing results with same pipeline
+- removed obsolete paths used for parsing of auto-processing results
+
+v1.7.35 (13/10/2021)
+- ignore json merging statistics and xia2.mmcif if aimless.log exists
+
+v1.7.34 (25/06/2021)
+- added pdbx_audit_support category for funding agency now required for PDB deposition
+
+v1.7.33 (02/02/2021)
+- bug fix: enable RefinementParameters button in XChemCOOT
+
+v1.7.32 (24/01/2021)
+- bug fix: XChemDeposit - enable reading of not symlinked logfiles
+
+v1.7.31 (20/01/2021)
+- bug fix: XChemDeposit - enable reading of staraniso .table1 file
+
+v1.7.30 (17/12/2020)
+- bug fix in XChemDeposit
+
+v1.7.29 (09/12/2020)
+- bug fix: syntax error in XChemDeposit
+- XChemDeposit: use default pdb_extract if no installation in XChemExplorer_dir
+
+v1.7.28 (25/11/2020)
+- added exception to catch 'Cannot allocate memory' error in XChemMain.get_gda_barcodes
+
+v1.7.27 (24/11/2020)
+- bug fix: add missing DataProcessingUniqueReflectionsLow/High column to db
+
+v1.7.26 (12/11/2020)
+- XChemDeposit: remove \n and \r from smiles string in _diffrn.details
+
+v1.7.25 (11/11/2020)
+- convert json logfile from dials into pseudo aimless file for mmcif file preparation (required for pdb-extract)
+
+v1.7.24 (02/11/2020)
+- capitalized organism names in NCBI_taxonomy_ID dictionary
+
+v1.7.23 (02/11/2020)
+- pandda refinement: stopped sourcing obsolete pandda v0.2.12 at DLS (otherwise refinement update script fails due to missing gemmi library)
+
+v1.7.22 (28/10/2020)
+- cosmetic changes to deposition interface
+- bug fix: make event map assignment during MMCIF preparation backward compatible
+- bug fix: finding of event map with highest CC for given ligand
+
+v1.7.21 (19/10/2020)
+- bug fix: use default CCP4 for giant.merge_conformations
+
+v1.7.20 (16/10/2020)
+- bug fix: remove undocumented and faulty changes to RunQuickRefine
+
+v1.7.19 (12/10/2020)
+- bug fix: use 'module load ccp4/7.0.072' for pandda.analyse, but 'module load ccp4' (i.e. v7.1) for pre-run ground-state selection at DLS
+
+v1.7.18 (12/10/2020)
+- bug fix: added missing 'module load ccp4' statement when generating pandda.analyse shell script at DLS
+
+v1.7.17 (09/10/2020)
+- bug fix: corrected positions of ignore checkboxes in pandda.analyse
+
+v1.7.16 (08/10/2020)
+- enable export of selected datasets with pandda.export
+- glitch fix: remove hydrogens before saving model for buster refinement (causes problems during ligand occupancy refinement)
+- XChemRefine: removed "-q medium.q" option for non-DLS refinement
+- added helper script to which reverts to last successful non-pandda refinement
+- XChemCoot (pandda refinement): reading of (2)fofc.maps disabled because Coot 0.9 does not handle P1 maps well
+- pandda.analyse: stopped sourcing obsolete pandda v0.2.12 at DLS
+
+v1.7.15 (25/09/2020)
+- added option to ignore GELLY sanity check in BUSTER
+- added option to ignore GELLY sanity check during pandda export with BUSTER
+
+v1.7.14 (24/09/2020)
+- added option for ligand occupancy refinement in BUSTER
+- XChemCootBuster: reading of (2)fofc.maps disabled because Coot 0.9 does not handle P1 maps well
+
+v1.7.13 (23/09/2020)
+- bug fix: use wavelength read from (.free).mtz during model MMCIF preparation when updating SF MMCIF
+
+v1.7.12 (14/09/2020)
+- bug fix: problem with recognizing AIMLESS logfiles during preparation of MMCIF files
+- bug fix: try finding experimental wavelength from .free.mtz file if it is 0.0 in refine.mtz during MMCIF file preparation
+- preparation of mmcif files: catch and report missing event mtz files
+
+v1.7.11 (09/09/2020)
+- bug fix: preparation of mmcif files: run aimless in onlymerge mode if only json file available
+
+v1.7.10 (08/09/2020)
+- bug fix - preparation of mmcif files for deposition: enable usage of event mtz files which were generated during 'BUSTER' export routine
+
+v1.7.9 (03/09/2020)
+- change 'Open COOT' to 'Open COOT - REFMAC refinement -' in Refinement action box
+
+v1.7.8 (01/09/2020)
+- bug fix: string formatting error during restraints generation on local machine
+- added scanchirals option to rhofit command in fit_ligands function
+- bug fix: added 'module load buster' to fit_ligands function
+
+v1.7.7 (22/07/2020)
+- bug fix: logical error in creation of restraints script when adding 'module load ccp4/phenix' command
+- removed phenix.reduce step from restraints generation
+
+v1.7.6 (22/07/2020)
+- bug fix: added 'module load ccp4/phenix' to restraints script in case not part of user bashrc file
+
+v1.7.5 (21/07/2020)
+- bug fix: remove obsolete 'module load mx' statement from xce_<restraints_prg> script which currently loads a gemmi incompatible ccp4 version
+
+v1.7.4 (21/07/2020)
+- bug fix: selected results not linked after parsing of auto-processing results
+- enabled updates of message & progress bar during scoring of auto-processing results
+- enabled updates of message & progress bar during DB update of pinIDs
+
+v1.7.3 (20/07/2020)
+- bug fix: ignore large temporary files in get_gda_barcodes which lead to memory errors
+- removed obsolete PROASIS menu item
+- bug fix: xce now reads already parsed auto-processing results correctly to speed up parsing
+
+v1.7.2 (16/07/2020)
+- show molprobity to-do list generated by buster-report in XCE COOT interface
+
+v1.7.1 (13/07/2020)
+- select auto-refinement from action box not from preferences
+
+v1.7.0 (29/06/2020)
+- implemented new pandda export routine which takes advantage of gemmi
+- updated html export accordingly
+- bug fix: order of commands changed in buster.sh to enable buster-report run on DLS cluster
+- added links to buster-reports in refinement table
+- calculate (2)fofc maps around ligand with ending _cut.ccp4
+- calculate ligand CC with EDSTATS and display in refinement table
+
+v1.6.29 (28/06/2020)
+- added capture of person (and date) changing RefinementOutcome field in DB
+
+v1.6.28 (28/06/2020)
+- added capture of refiner and date of refinement in DB after refinement
+
+v1.6.27 (28/06/2020)
+- made water update optional when refining with with Buster
+
+v1.6.26 (24/06/2020)
+- added option for anisotropic B-factor refinement with Buster
+
+v1.6.25 (22/06/2020)
+- backup soakDB after restart and 'update database from filesystem'
+
+v1.6.24 (22/06/2020)
+- bug fix: missing '\n' in calculate_maps (XChemRefine) deleted soakDB file
+
+v1.6.23 (12/06/2020)
+- use gemmi (if available) to convert event maps to mtz
+
+v1.6.22 (11/06/2020)
+- added mapmask step after map calculation in buster refinement in order to cover entire molecule (required for nglview)
+
+v1.6.21 (04/06/2020)
+- source ccp4 7.0 at Diamond before running giant.score_model during Buster refinement
+
+v1.6.20 (03/06/2020)
+- enable remote cluster submission of (Buster) refinement jobs
+
+v1.6.19 (28/05/2020)
+- combined parsing of 'agamemnon' auto-collection into single function
+
+v1.6.18 (17/05/2020)
+- removed dls specific source files from pandda.analyse script when running on local machine
+
+v1.6.17 (17/05/2020)
+- DIMPLE: added 'tolerance 5' keyword to pointless step to allow reindexing in case of slightly larger unit cell differences
+
+v1.6.16 (12/05/2020)
+- XChemExplorer.py removed unused 'import gtk' statement which is incompatible with ccp4 7.1
+
+v1.6.15 (12/05/2020)
+- added html summary for all '5-deposition ready' structures
+- HTML summary: show NO_SPIDER_PLOT_AVAILABLE.png if spider plot is missing
+
+v1.6.14 (11/05/2020)
+- XChemUtils: get BUSTER from PROGRAM REMARK
+- XChemDeposit: usage of model mmcif file disabled because of unclear errors during group deposition
+- XChemDeposit: do not add ligand cif to model mmcif because Buster does already include it
+- XChemDeposit: use pdb_extract v3.26 when using mmcif instead of pdb files
+
+v1.6.13 (10/05/2020)
+- XChemDeposit: use RefinementMMCIFmodel_latest (if available) instead of refine.split.bound-state.pdb
+
+v1.6.12 (09/05/2020)
+- capture refinement mmcif file location in DB after refinement (if available)
+
+v1.6.11 (04/05/2020) 
+- added giant.score_model after buster refinement
+- added field and capture of path to buster-reports in DB
+
+v1.6.10 (04/05/2020) 
+- bug fix: only read (2)fofc_twin.map during dimple_twin map review
+
+v1.6.9 (04/05/2020) 
+- added COOT command to open dimple_twin maps
+
+v1.6.8 (30/04/2020) 
+- enable html export of '4 - CompChem ready' structures only 
+
+v1.6.7 (29/04/2020)
+- initial twin refinement with dimple in separate folder and additional fields in XChemDB
+
+v1.6.6 (28/04/2020)
+- bug fix: NameError in XChemRefine
+
+v1.6.5 (28/04/2020)
+- more verbose error messages in buster refine module
+
+v1.6.4 (28/04/2020)
+- added validation with buster-reports after refinement with buster
+
+v1.6.3 (25/04/2020) 
+- grade will use mogul for restraints generation if program available 
+
+v1.6.2 (24/04/2020)
+- restraints generation: use program name in script name for easier trouble-shooting
+- assign_stereochemistry.py option removed from restraints generation
+
+v1.6.1 (17/04/2020)
+- added 7 - Analysed & Rejected' to refinement table combobox
+
+v1.6.0 (14/04/2020)
+- new option: directly refine bound-state only after pandda.inspect with buster
+
+v1.5.17 (07/04/2020)
+- add option to specify $SampleID in structure deposition title
+
+v1.5.16 (06/04/2020)
+- XChemThread: copy un-merged MTZ file for xia2, dials & 3d(ii)
+- XChemThread: change parsing of auto-processing results to enable reading of multiple runs with same name, e.g. xia-3dii
+- bug fix: enable 3dii only selection of auto-processing results
+- remove xia2-3d only auto-processing selection option
+
+v1.5.15 (06/04/2020)
+- bug fix: found instance in pandda_inspect_events.csv where sites/ events displayed as float instead of int; added fix
+
+v1.5.14 (14/03/2020)
+- HTML export: enable changing of contour level of event maps
+- HTML export: set ligand confidence to "not assigned" for deposition ready model that have "0 - no ligand bound"
+
+v1.5.13 (11/03/2020)
+- bug fix: include covlinks argument is None in XChemPANDDA quickRefine
+
+v1.5.12 (10/03/2020)
+- DIMPLE: added pointless step before dimple to reindex according to ref_pdb if necessary
+
+v1.5.11 (10/03/2020)
+- added linking of covalent binders for PanDDA models (refine.split-bound.pdb)
+- remove links to refine.output... PDB files after refinement
+
+v1.5.10 (05/03/2020)
+- bug fix: correct name of event map in files directory
+
+v1.5.9 (05/03/2020)
+- bug fix: reading of .json scaling logfiles enabled during 'update database from filesystem'
+
+v1.5.8 (04/03/2020)
+- added Taxonomy ID for mus musculus
+
+v1.5.7 (03/03/2020)
+- bug fix: capture all available event maps during html export
+
+v1.5.6 (02/03/2020)
+- added Taxonomy ID for BAT SARS-LIKE CORONAVIRUS and COVID-19
+
+v1.5.5 (27/02/2020)
+- bug fix: update depositTable with ground_state_sf.mmcif if successfully created
+
+v1.5.4 (27/02/2020)
+- bug fix: iotbx spg symbol for H32 needed changing for unique step of initial map calculation
+
+v1.5.3 (26/02/2020)
+- bug fix: read spacegroup as H32 from xia2.mmcif ('R 3 2 :H')
+
+v1.5.2 (25/02/2020)
+- bug fix: correct determination of staraniso runs for different space groups
+
+v1.5.1 (24/02/2020)
+- enable parsing of autoPROC/ staraniso auto-processing results with specific space groups applied (e.g. autoPROC-P21)
+- bug fix: names of auto-processing pipelines get now correctly determined
+
+v1.5.0 (20/02/2020)
+- ground-state mean maps are EXCLUDED from apo deposition, because either map2mtz conversion was faulty or columns were missing; moreover, they are not required to reproduce the maps and users can deposit them separately on ZENODO if they want
+
+v1.4.10 (18/02/2020)
+- XChemDeposit: remove _pdbx_related_exp_data_set block because PanDDA ZENODO upload is not required
+- XChemDeposit: add _pdbx_contact_author.identifier_ORCID field
+- XChemDeposit: add pdbx_keywords dropdown
+- added helper script to reset occupancy of all protein residues with single conformer to 1.00
+- XChemDeposit: add ligand cif file to structure mmcif file
+
+v1.4.9 (13/02/2020)
+- bug fix: corrected DataProcessingUnitCellVolume calculation from merging-statistics.json file for trigonal lattice
+- show only 'resolution high' in tables because formatting for resolution at 1.5 or 2.0 I/sig(I) inconsistent in aimless logfiles and not reported in dials scaling logile
+
+v1.4.8 (07/02/2020)
+- bug fix: default labxchem folders are only selected if xce starts in /dls/labxchem/...; just having labxchem in current directory string is not sufficient
+
+v1.4.7 (07/02/2020)
+- added script to helpers which can replace residues in bound and ground state based on a new reference model (change_residues_in_ground_and_bound-state.py); cannot be called from GUI at the moment
+
+v1.4.6 (21/01/2020)
+- added xia2-* wildcard to read_write_autoprocessing_results_from_to_disc because autoprocessing folder names changed
+- added parsing of DIALS JSON merging statistics file and MMCIF cell parameter file
+- added 'recollect' folder for parsing of auto-collections
+
+v1.4.5 (16/01/2020)
+- bug fix: removing and re-parsing of folders from project directory does not need the DataProcessingAutoAssigned flag to be reset if the MTZ file does not exist
+
+v1.4.4 (10/01/2020)
+- bug fix: corrected pandda.analyse keyword 'exclude_from_z_map_analysis'
+
+v1.4.3 (10/01/2020)
+- added additional error message during pandda.export in case of missing ensemble model
+
+v1.4.2 (17/12/2019)
+- bug fix: arbitrary clicking order for atoms making a new covalent link
+
+v1.4.1 (16/12/2019)
+- bug fix: in helpers/assign_stereochemistry.py; use CompoundSMILES instead of CompoundSMILESproduct (which need to be provided by user)
+- bug fix: auto-fitting of ligands - use default ccp4 distribition and submission command
+- bug fix: add 'module load mx' to restraints generation script; uses default ccp4 installation, otherwise CLIB path for GRADE broken
+
+v1.4.0 (03/12/2019)
+- introduced simple semantic versioning according to https://semver.org
+
+v1.3.8.19 (02/12/2019)
+- bug fix: xce to read resolution at Mn(I)/sig(I) of 2.0 (and 1.5 if possible) from aimless log; now only reads either one or the other. Datasets table now only shows reso at 2.0 since 1.5 not always shown
+- bug fix: read gda barcodes into DB and display in datasets table
+
+v1.3.8.18 (25/11/2019)
+- bug fix: added except statement in get_gda_barcodes to catch errors during parsing of multiple visits
+
+v1.3.8.17 (20/11/2019)
+- bug fix: refine routine in XChemCootReference.py did not contain argument for covalent bonds
+
+v1.3.8.16 (17/10/2019)
+- added CompoundSMILESproduct field in DB to provide SMILES string of product of covalent binders
+- new function to use phenix.ligandfit and rhofit to fit ligands into initial maps (all enantiomers are tried and best one is selected)
+
+v1.3.8.15 (15/10/2019) 
+- new function to define covalent links in XCE COOT interface and to create them with ACEDRG
+
+v1.3.8.14 (14/10/2019) 
+- new workflow to detect chiral centres in molecules and subsequent enumaration of stereoisomers with phenix.elbow
+- selection and modelling of different enantiomers implemented in XCE-COOT interface
+
+v1.3.8.13 (27/09/2019)
+- changes to parsing of auto-collected visits ("agamemnon") due to DLS changes to folder structure (now called 'auto' instead of 'agamemnon')
+
+v1.3.8.12 (10/09/2019) 
+- new task for merging CIF file of non-standard ligand with compoound CIF files
+- added exception to catch IOError during opening of gzipped gda logfile
+
+v1.3.8.11 (04/09/2019)
+- added few changes to enable parsing of DLS visit directories transfered to other file system
+
+v1.3.8.10 (14/08/2019)
+- bug fix: update DB from file system now looks for refine.split.bound-state.pdb instead of refine.bound.pdb
+
+v1.3.8.9 (07/08/2019)
+- added option to parse Agamemnon data structure at DLS
+- removed obsolete 'Run DIMPLE on All Autoprocessing MTZ files' option from yellow Datasets action box
+
+v1.3.8.8 (25/06/2019) 
+- path to selected ground-state MTZ/PDB displayed (deposition tab)
+- selected PanDDA directoy for ground-state deposition displayed (deposition tab)
+- link to group deposition website added to ligand-bound deposition (deposition tab)
+- information about ground-state MTZ file added (deposition tab)
+
+v1.3.8.7 (06/06/2019)
+- 'model_building' is now the new default initial_model directory
+
+v1.3.8.6 (31/05/2019)
+- XChemCOOT-test: added menu funciton to set occupancy of all protein residues to 1 (IMPORTANT: requires COOT v0.8.9.2 or higher)
+
+v1.3.8.5 (29/05/2019)
+- bug fix: selection of ground-state mean-map after pandda pre-run: look for average-map instead of mean-map
+
+v1.3.8.4 (23/05/2019)
+- bug fix: new initial refinement mechanism does not use the dimple_rerun_on_selected_file subfolder which meant that the .free.mtz file was not selected after the run
+- XChemPanDDA export: changed how models will be selected for refinement
+- XChemPanDDA export: removed update of obsolete DimplePANDDAhit field in database
+- XChemPanDDA export: removed false alarm during export #217
+- XChemDeposit: added check for .free.mtz file
+- XChemCOOT: add XCE menu (test version only)
+- XChemCOOT: add menue item to set occupancy of all protein residues to 1.0 (test version only)
+
+v1.3.8.3 (22/05/2019)
+- XChemCOOT: xce-coot messages are now written to xce.log file (not all, yet)
+- XChemCOOT: warning message added in case cootOut/Refine_ folder exists
+- bug fix: XChemDB: remove hidden characters like \r and \n when updating depositTable
+- XChemDB: changed single to double quotation marks (and vice versa) in update depositTable function to allow for example 5' in structure title
+
+v1.3.8.2 (17/05/2019)
+- bug fix: avoid overwriting of ligand confidence when updating DN from file system: removed option to 'Update datasource with results from pandda.inspect' + changed XChemPanDDA that only the panddaTable gets only updated for models that ought to be exportet.
+- bug fix (temporary): removed label option because it does not behave as expected
+- XChemDB: removed PANDDA_site_ligand_placed constraint from query for pandda models
+
+v1.3.8.1 (17/05/2019) 
+- XCE now ignores empty directories when updating DB from file system
+
+v1.3.8 (25/04/2019)
+- added possibility to deposit protein-protein complex structure
+- XChemDeposit - create table_1 from final mmcif file
+- XChemDeposit - add option to not include event maps in SF mmcif file
+- bug fix: XChemDeposit - use beamline information from mainTable
+
+v1.3.7 (18/03/2019)
+- implemented pop-up window to remind users where they started xce - minor change
+
+v1.3.6 (14/03/2019)
+- new deposition tab with step-by-step instructions regarding PanDDA group depositions
+- some obsolete commands were removed from menu and action boxes
+- added instructions about how to update DB with PDB codes after group deposition of ligand bound structures
+- bug fix: add only structures which are '5-ready for deposition' to tar archive for PDB upload
+- increment existing .tar.bz2 files in group_deposition folder before creating a new one
+- bug fix: '5-ready for deposition' models can now be added and removed if respective field in COOT interface is triggered
+
+v1.3.5 (07/03/2019)
+- added option to use pipedream or phenix.ligand_pipeline for initial refinement (see preferences)
+
+v1.3.4 (01/03/2019)
+- bug fix: remove sourcing of pandda setup script in panddaRefine module in case of non-DLS refinement
+
+v1.3.3 (19/02/2019)
+- bug fix: wavelength information for apo mmcif file data_template is now also taken from ground-state mtz file
+- added additional instructions to deposition tab about ground-state aimless LOG file
+- bug fix: removed not supported 'group leader' and 'investigator' option from edit deposition data menu
+
+v1.3.2 (12/02/2019)
+- bug fix: removed reference to non-existent labels (prevented opening of 
